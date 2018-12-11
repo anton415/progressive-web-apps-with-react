@@ -1,0 +1,12 @@
+{
+  "name": "progressive-web-apps-with-react",
+  "version": "0.0.1",
+  "description": "Project about creating PWA using React.",
+  "main": "index.js",
+  "repository": "https://github.com/anton415/progressive-web-apps-with-react.git",
+  "author": "Anton Serdyuchenko <anton415@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.6.3"
+  }
+}
