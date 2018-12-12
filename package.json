@@ -6,6 +6,9 @@
   "repository": "https://github.com/anton415/progressive-web-apps-with-react.git",
   "author": "Anton Serdyuchenko <anton415@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "node_modules/.bin/webpack"
+  },
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
