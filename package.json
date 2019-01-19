@@ -1,0 +1,9 @@
+{
+  "name": "progressive-web-apps-with-react",
+  "version": "1.0.0",
+  "description": "Project from book.",
+  "main": "index.js",
+  "repository": "https://github.com/anton415/progressive-web-apps-with-react.git",
+  "author": "Anton Serdyuchenko <anton415@gmail.com>",
+  "license": "MIT"
+}
