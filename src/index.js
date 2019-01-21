@@ -1,3 +1,5 @@
-require('./index2');
+var React = require('react');
+var ReactDOM = require('react-dom');
 
-console.log('hello from index.js');
+ReactDOM.render(React.createElement('h1', null, 'Hello from react!'),
+document.getElementById('root'));
