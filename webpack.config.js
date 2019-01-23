@@ -4,5 +4,11 @@ module.exports = {
     path: __dirname + "/public",
     filename: "bundle.js",
     publicPath: "/",
+  },
+  devServer: {
+    contentBase: "./public",
+    historyApiFallback: true,
+    inline: true,
+    hot: true
   }
 };
