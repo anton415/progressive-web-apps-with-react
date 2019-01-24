@@ -3,7 +3,20 @@ module.exports = {
   output: {
     path: __dirname + "/public",
     filename: "bundle.js",
-    publicPath: "/",
+    publicPath: "/"
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presents: ['es2015', 'react'],
+          plugins: ['transform-class-properties']
+        }
+      }
+    ]
   },
   devServer: {
     contentBase: "./public",
