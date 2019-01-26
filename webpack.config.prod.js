@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
   entry: [
@@ -45,5 +46,8 @@ module.exports = {
         minifyURLs: true,
       },
     }),
+    new ManifestPlugin({
+      fileName: 'asset-manifest.json'
+    })
   ],
 };
