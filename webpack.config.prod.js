@@ -3,13 +3,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
-  entry: [
-    __dirname + "/src/index.js"
-  ],
+  entry: __dirname + '/src/index.js',
   output: {
-    path: __dirname + "/build",
-    filename: "bundle.js",
-    publicPath: "./"
+    path: __dirname + '/build',
+    filename: 'bundle.js',
+    publicPath: './'
   },
   module: {
     loaders: [
@@ -18,8 +16,19 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presents: ['es2015', 'react'],
+          presets: ['es2015', 'react'],
           plugins: ['react-hot-loader/babel', 'transform-class-properties']
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+      },
+      {
+        exclude: [/\.html$/, /\.(js|jsx)$/, /\.css$/, /\.json$/],
+        loader: 'file-loader',
+        options: {
+          name: 'static/media/[name].[ext]'
         }
       }
     ]
@@ -32,7 +41,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: true,
-      template: __dirname + "/public/index.html",
+      template: __dirname + '/public/index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -43,11 +52,21 @@ module.exports = {
         keepClosingSlash: true,
         minifyJS: true,
         minifyCSS: true,
-        minifyURLs: true,
+        minifyURLs: true
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        reduce_vars: false
       },
+      output: {
+        comments: false
+      },
+      sourceMap: true
     }),
     new ManifestPlugin({
       fileName: 'asset-manifest.json'
     })
-  ],
+  ]
 };
