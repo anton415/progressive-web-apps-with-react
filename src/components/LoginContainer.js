@@ -29,7 +29,7 @@ class LoginContainer extends Component {
             value={this.state.email}
             placeholder="Your email"
           />
-          <inpur
+          <input
             type="password"
             onChange={this.handlePasswordChange}
             value={this.state.password}
