@@ -16,7 +16,15 @@ class LoginContainer extends Component {
     event.preventDefault();
     this.setState({ error: '' });
     if (this.state.email && this.state.password) {
+      firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+        .then(res => {console.log(res); })
+        .catch(err => {
+          if (error.code === 'auth/user-not-found') {
 
+          } else {
+            this.setState({ error: 'Error logging in.' });
+          }
+        })
     } else {
       this.setState({ error: 'Please fill in both fields.' });
     }
