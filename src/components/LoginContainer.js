@@ -26,14 +26,29 @@ class LoginContainer extends Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(res => {console.log(res); })
+      .then(res => {
+        console.log(res);
+      })
       .catch(err => {
         if (error.code === 'auth/user-not-found') {
           this.signup();
         } else {
           this.setState({ error: 'Error logging in.' });
         }
+      });
+  };
+
+  signup() {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then(res => {
+        console.log(res);
       })
+      .catch(error => {
+        console.log(error);
+        this.setState({ error: 'Error signing up.' });
+      });
   };
 
   render() {
